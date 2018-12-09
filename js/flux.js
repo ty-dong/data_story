@@ -5,6 +5,7 @@ $(function() {
 	var stroke_color = "#FFF"
 	var opacity_strength=1;
 	var max_volume=1;
+	var hide_arcs = false;
 
 	var proj = d3.geoOrthographic()//geoKavrayskiy7()
 		.scale(280)
@@ -62,6 +63,15 @@ $(function() {
 			refresh();
 		})
 
+		document.getElementById("hide").addEventListener("change", function(){
+			if(hide_arcs)
+				{hide_arcs = false;
+				}
+			else
+			{hide_arcs =true;}
+			refresh();
+		});
+
 	// Draw a set of routes
 	function drawTrade() {
 		d3.csv("data/countries_import.csv", function (error, routes) {
@@ -94,23 +104,31 @@ $(function() {
 	  function refresh() {
 	    svg.selectAll(".land").attr("d", path);
 			svg.selectAll(".water").attr("d", path);
-	    g1.selectAll(".route").attr('d', function(d) {
-	      var loc = getLoc(d)
-	      return path ({
-	      type:"LineString",
-	      coordinates: [ [2,46], loc]
-	      });
-	    })
-			.style("stroke", stroke_color)
-			.style("opacity", function(d) {
-				if(opacity_strength==100) {
-					return(d.Masse);
-				}
-				else {
-					return(d.Masse*opacity_strength/max_volume);
-				}
-			})
-	  }
+			console.log(hide_arcs);
+			if(hide_arcs) {
+		    g1.selectAll(".route").attr("visibility", "hidden")
+			}
+			else {
+					g1.selectAll(".route").attr('d', function(d) {
+					 var loc = getLoc(d)
+					 return path ({
+					 type:"LineString",
+					 coordinates: [ [2,46], loc]
+					 });
+				 })
+				 .style("stroke", stroke_color)
+				 .attr("visibility", "visible")
+				 .style("opacity", function(d) {
+					 if(opacity_strength==100) {
+						 return(d.Masse);
+					 }
+					 else {
+						 return(d.Masse*opacity_strength/max_volume);
+					 }
+				});
+			}
+		}
+
 
 
 	  function dragstarted() {
