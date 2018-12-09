@@ -3,6 +3,8 @@ $(function() {
 
 	var width = 700; var height = 600;
 	var stroke_color = "#FFF"
+	var opacity_strength=1;
+	var max_volume=1;
 
 	var proj = d3.geoOrthographic()//geoKavrayskiy7()
 		.scale(280)
@@ -32,9 +34,9 @@ $(function() {
 
 	var g1 = svg.append("g");
 
-	d3.json("data/world.json",function(error,world) {
+	d3.json("data/countries.json",function(error,world) {
 		console.log()
-		var countries = topojson.feature(world, world.objects.countries).features;
+		var countries = topojson.feature(world, world.objects.countries1).features;
 		g1.append("path")
 			 .datum({type: "Sphere"})
 			 .attr("class", "water")
@@ -55,10 +57,16 @@ $(function() {
 		   refresh();
 		});
 
+		document.getElementById("opacity").addEventListener("change", function() {
+			opacity_strength = this.value;
+			refresh();
+		})
+
 	// Draw a set of routes
 	function drawTrade() {
 		d3.csv("data/countries_import.csv", function (error, routes) {
 			var maxVolume = d3.max(routes, function(d) { return +d.Masse; });
+			max_volume = maxVolume;
 
 			routePath = g1.selectAll(".route")
 				.data(routes)
@@ -69,7 +77,7 @@ $(function() {
 	        return (Math.log(d.Masse)*0.1);
 				})
 				.style("opacity", function(d) {
-					return(2*d.Masse/maxVolume);
+					return(d.Masse*opacity_strength/max_volume);
 				})
 				.style("stroke", stroke_color)
 				.attr('d', function(d) {
@@ -94,6 +102,14 @@ $(function() {
 	      });
 	    })
 			.style("stroke", stroke_color)
+			.style("opacity", function(d) {
+				if(opacity_strength==100) {
+					return(d.Masse);
+				}
+				else {
+					return(d.Masse*opacity_strength/max_volume);
+				}
+			})
 	  }
 
 
@@ -142,7 +158,9 @@ $(function() {
 		// moves the 'group' element to the top left margin
 		d3.select("#info").remove();
 
-		var svg = d3.select("#Country").append("svg")
+		var svg = d3.select("#Country")
+			.text(d.properties.name)
+			.append("svg")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom)
 			.attr("id", "info")

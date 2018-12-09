@@ -1,7 +1,7 @@
 <!-- Tools Section -->
 <section id="tools">
   <head>
-  	<script src="https://d3js.org/d3.v4.js"></script>
+  	<script src="http://d3js.org/d3.v4.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
   	<script src="https://d3js.org/d3-geo-projection.v1.min.js"></script>
 
@@ -22,6 +22,12 @@
 
   	.water {fill: #43a2ca;}
 
+    .land:hover {
+      fill:#f45642;
+      stroke: #000;
+  	  stroke-width: 0.7px;}
+    }
+
   	svg { background: #ffffff ; }
 
   </style>
@@ -40,17 +46,17 @@
     				<input id="rotation" type="range" min="-0.1" max="0.1" step="0.005" value="0.015" style="width: 160px"/>
 
     				<p> Marker opacity</p>
-    				<input id="glow" type="range" min="0.05" max="0.5" step="0.01" value="0.3" style="width: 160px"/>
+    				<input id="opacity" type="range" min="1" max="100" step="0.01" value="0.3" style="width: 160px"/>
 
     				<p> Color </p>
-    				<input id="color" type="color" value="#FFF">
+    				<input id="color" type="color" value="#FFFFFF">
     			</controls>
     		</td>
     		<td>
     			<div id="map", align = "center"></div>
     		</td>
     		<td>
-    			<div id="Country", align = "center">Country name</div>
+    			<div id="Country", align = "center"></div>
     		</td>
     		</tr>
     		</tbody>
