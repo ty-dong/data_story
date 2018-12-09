@@ -65,11 +65,15 @@ $(function() {
 
 		document.getElementById("hide").addEventListener("change", function(){
 			if(hide_arcs)
-				{hide_arcs = false;
+				{
+					hide_arcs = false;
+					g1.selectAll(".route").attr("visibility", "visible");
 				}
 			else
-			{hide_arcs =true;}
-			refresh();
+			{
+				hide_arcs =true;
+				g1.selectAll(".route").attr("visibility", "hidden");
+			}
 		});
 
 	// Draw a set of routes
@@ -101,32 +105,25 @@ $(function() {
 
 		}
 
-	  function refresh() {
+	 function refresh() {
 	    svg.selectAll(".land").attr("d", path);
 			svg.selectAll(".water").attr("d", path);
-			console.log(hide_arcs);
-			if(hide_arcs) {
-		    g1.selectAll(".route").attr("visibility", "hidden")
-			}
-			else {
-					g1.selectAll(".route").attr('d', function(d) {
-					 var loc = getLoc(d)
-					 return path ({
-					 type:"LineString",
-					 coordinates: [ [2,46], loc]
-					 });
-				 })
-				 .style("stroke", stroke_color)
-				 .attr("visibility", "visible")
-				 .style("opacity", function(d) {
-					 if(opacity_strength==100) {
-						 return(d.Masse);
-					 }
-					 else {
-						 return(d.Masse*opacity_strength/max_volume);
-					 }
-				});
-			}
+			g1.selectAll(".route").attr('d', function(d) {
+			 var loc = getLoc(d)
+			 return path ({
+			 type:"LineString",
+			 coordinates: [ [2,46], loc]
+			 });
+		 })
+		 .style("stroke", stroke_color)
+		 .style("opacity", function(d) {
+			 if(opacity_strength==100) {
+				 return(d.Masse);
+			 }
+			 else {
+				 return(d.Masse*opacity_strength/max_volume);
+			 }
+		});
 		}
 
 
