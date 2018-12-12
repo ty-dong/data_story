@@ -74,6 +74,7 @@ $(function() {
 				hide_arcs =true;
 				g1.selectAll(".route").attr("visibility", "hidden");
 			}
+			//refresh();
 		});
 
 	// Draw a set of routes
@@ -105,7 +106,7 @@ $(function() {
 
 		}
 
-	 function refresh() {
+	  function refresh() {
 	    svg.selectAll(".land").attr("d", path);
 			svg.selectAll(".water").attr("d", path);
 			g1.selectAll(".route").attr('d', function(d) {
@@ -157,9 +158,9 @@ $(function() {
 	function country_clicked(d) {
 
 			// set the dimensions and margins of the graph
-		var margin = {top: 20, right: 20, bottom: 30, left: 40},
-			width = 300 //- margin.left - margin.right,
-			height = 300 //- margin.top - margin.bottom;
+		var margin = {top: 20, right: 20, bottom: 70, left: 60},
+			width = 300 - margin.left - margin.right,
+			height = 300 - margin.top - margin.bottom;
 
 		// set the ranges
 		var x = d3.scaleBand()
@@ -185,32 +186,47 @@ $(function() {
 						"translate(" + margin.left + "," + margin.top + ")");
 
 		// get the data
-		d3.csv("data/barchart.csv", function(error, data) {
+		d3.csv("data/import_per_country.csv", function(error, data) {
 		if (error) throw error;
 
-		// format the data
-		data.forEach(function(d) {
-			d.sales = +d.sales;
-		});
+		var products = new Array(0);
+
+		data.forEach(function(e) {
+			if (d.properties["Alpha-2"] == e.cca2) {
+				products.push(new Array([e.Name, e.Mass]));
+			}
+		})
+
+		console.log(products);
 
 		// Scale the range of the data in the domains
-		x.domain(data.map(function(d) { return d.salesperson; }));
-		y.domain([0, d3.max(data, function(d) { return d.sales; })]);
+		//x.domain(data.map(function(e) { return products[e][0]; }));
+		//y.domain([0, d3.max(data, function(e) { return d.Mass; })]);
+
+		x.domain(products.map(function(e) { return e[0][0]; }));
+
+		y.domain([0, d3.max(products, function(e) { return e[0][1]; })]);
+
 
 		// append the rectangles for the bar chart
 		svg.selectAll(".bar")
-				.data(data)
+				.data(products)
 			.enter().append("rect")
 				.attr("class", "bar")
-				.attr("x", function(d) { return x(d.salesperson); })
+				.attr("x", function(e) { return x(e[0][0]); })
 				.attr("width", x.bandwidth())
-				.attr("y", function(d) { return y(d.sales); })
-				.attr("height", function(d) { return height - y(d.sales); });
+				.attr("y", function(e) { return y(e[0][1]); })
+				.attr("height", function(e) { return height - y(e[0][1]); })
 
 		// add the x Axis
 		svg.append("g")
 				.attr("transform", "translate(0," + height + ")")
-				.call(d3.axisBottom(x));
+				.call(d3.axisBottom(x))
+				.selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-65)" );
 
 		// add the y Axis
 		svg.append("g")
