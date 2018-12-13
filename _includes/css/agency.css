@@ -653,6 +653,38 @@ aside.clients img {
     margin: 50px auto;
 }
 
+.column {
+  float: left;
+  height:550px;
+  padding: 10px;
+  background-color: #fff5a3;
+}
+.left {
+  width: 17%;
+  padding : 30px;
+}
+
+.right {
+  width: 33%;
+  padding : 30px;
+}
+
+.middle {
+  width:50%;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .column {
+    width: 100%;
+  }
+}
+
 section#contact {
     background-color: #222;
     background-image: url('{{ site.baseurl }}/img/map-image.png');

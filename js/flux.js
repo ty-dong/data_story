@@ -1,19 +1,20 @@
 
 $(function() {
 
-	var width = 700; var height = 600;
+	var width = 500; var height = 500;
 	var stroke_color = "#FFF"
 	var opacity_strength=1;
 	var max_volume=1;
 	var hide_arcs = false;
 
 	var proj = d3.geoOrthographic()//geoKavrayskiy7()
-		.scale(280)
+		.scale(250)
 	  .rotate([0,0])
 		.translate([width/2,height/2])
 		.precision(0.1);
 
 	var path = d3.geoPath().projection(proj);
+
 	var svg = d3.select("#map").append("svg")
 		.attr("width", width)
 		.attr("height", height);
@@ -36,7 +37,6 @@ $(function() {
 	var g1 = svg.append("g");
 
 	d3.json("data/countries.json",function(error,world) {
-		console.log()
 		var countries = topojson.feature(world, world.objects.countries1).features;
 		g1.append("path")
 			 .datum({type: "Sphere"})
@@ -158,29 +158,29 @@ $(function() {
 	function country_clicked(d) {
 
 			// set the dimensions and margins of the graph
-		var margin = {top: 20, right: 20, bottom: 70, left: 60},
-			width = 300 - margin.left - margin.right,
-			height = 300 - margin.top - margin.bottom;
-
-		// set the ranges
-		var x = d3.scaleBand()
-						.range([0, width+10])
-						.padding(0.1);
-		var y = d3.scaleLinear()
-						.range([height, 0]);
+		var margin = {top: 20, right: 20, bottom: 150, left: 70},
+			width = 400 - margin.left - margin.right,
+			height = 400 - margin.top - margin.bottom;
 
 		// append the svg object to the body of the page
 		// append a 'group' element to 'svg'
 		// moves the 'group' element to the top left margin
 		d3.select("#info").remove();
+		d3.select("#name").remove();
+
+		d3.select("#Country-name")
+			.append("h4")
+			.attr("id", "name")
+			.attr("float","right")
+			.text(d.properties.name)
 
 		var svg = d3.select("#Country")
-			.text(d.properties.name)
 			.append("svg")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom)
 			.attr("id", "info")
 			.attr("align", "center")
+			.attr("position", "absolute")
 		.append("g")
 			.attr("transform",
 						"translate(" + margin.left + "," + margin.top + ")");
@@ -196,16 +196,17 @@ $(function() {
 				products.push(new Array([e.Name, e.Mass]));
 			}
 		})
-
-		console.log(products);
+		// set the ranges
+		var x = d3.scaleBand()
+						.range([0, width+10])
+						.padding(0.1);
+		var y = d3.scaleLog()
+						.range([height, 0]);
 
 		// Scale the range of the data in the domains
-		//x.domain(data.map(function(e) { return products[e][0]; }));
-		//y.domain([0, d3.max(data, function(e) { return d.Mass; })]);
-
 		x.domain(products.map(function(e) { return e[0][0]; }));
 
-		y.domain([0, d3.max(products, function(e) { return e[0][1]; })]);
+		y.domain([0.5, d3.max(products, function(e) { return e[0][1]; })]);
 
 
 		// append the rectangles for the bar chart
@@ -230,7 +231,7 @@ $(function() {
 
 		// add the y Axis
 		svg.append("g")
-				.call(d3.axisLeft(y));
+				.call(d3.axisLeft(y).ticks(4))
 
 			});
 	}
