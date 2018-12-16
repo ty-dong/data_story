@@ -80,7 +80,8 @@ $(function() {
 	// Draw a set of routes
 	function drawTrade() {
 		d3.csv("data/countries_import.csv", function (error, routes) {
-			var maxVolume = d3.max(routes, function(d) { return +d.Masse; });
+			var maxVolume = d3.max(routes, function(d) { return +parseFloat(d.Mass); });
+			console.log(maxVolume)
 			max_volume = maxVolume;
 
 			routePath = g1.selectAll(".route")
@@ -89,10 +90,10 @@ $(function() {
 				.append("path")
 				.attr("class","route")
 				.style("stroke-width", function(d) {
-	        return (Math.log(d.Masse)*0.1);
+	        return (Math.log(parseFloat(d.Mass))*0.1);
 				})
 				.style("opacity", function(d) {
-					return(d.Masse*opacity_strength/max_volume);
+					return(parseFloat(d.Mass)*opacity_strength/max_volume);
 				})
 				.style("stroke", stroke_color)
 				.attr('d', function(d) {
@@ -119,10 +120,10 @@ $(function() {
 		 .style("stroke", stroke_color)
 		 .style("opacity", function(d) {
 			 if(opacity_strength==100) {
-				 return(d.Masse);
+				 return(parseFloat(d.Mass));
 			 }
 			 else {
-				 return(d.Masse*opacity_strength/max_volume);
+				 return(parseFloat(d.Mass)*opacity_strength/max_volume);
 			 }
 		});
 		}
@@ -200,13 +201,13 @@ $(function() {
 		var x = d3.scaleBand()
 						.range([0, width+10])
 						.padding(0.1);
-		var y = d3.scaleLog()
+		var y = d3.scaleLinear()
 						.range([height, 0]);
 
 		// Scale the range of the data in the domains
 		x.domain(products.map(function(e) { return e[0][0]; }));
 
-		y.domain([0.5, d3.max(products, function(e) { return e[0][1]; })]);
+		y.domain([0, d3.max(products, function(e) { return e[0][1]; })]);
 
 
 		// append the rectangles for the bar chart
@@ -231,7 +232,7 @@ $(function() {
 
 		// add the y Axis
 		svg.append("g")
-				.call(d3.axisLeft(y).ticks(4))
+				.call(d3.axisLeft(y).ticks())
 
 			});
 	}

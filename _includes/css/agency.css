@@ -652,6 +652,11 @@ section h3.section-subheading {
 aside.clients img {
     margin: 50px auto;
 }
+.text-corps {
+  text-align: justify;
+  padding-bottom: 20px;
+}
+
 
 .column {
   float: left;
@@ -659,6 +664,13 @@ aside.clients img {
   padding: 10px;
   background-color: #fff5a3;
 }
+.column2 {
+  float: left;
+  height:450px;
+  padding: 10px;
+  background-color: #fff5a3;
+}
+
 .left {
   width: 17%;
   padding : 30px;
@@ -676,6 +688,67 @@ aside.clients img {
   content: "";
   display: table;
   clear: both;
+}
+
+.left-product {
+  width: 25%;
+  padding : 10px;
+}
+
+.middle-product {
+  width:75%;
+  padding : 10px;
+}
+
+.row-product {
+  height:50%;
+  padding:10px;
+}
+.row-product-top {
+  height:20%;
+  padding:10px;
+}
+.row-product-btm {
+  height:80%;
+  padding:10px;
+}
+.row-calendar{
+  width:100%;
+  background-color:#fff5a3;
+  padding-left: 7.5%;
+  padding-right: 7.5%;
+  padding-top: 2%
+}
+
+select {
+  width: 100%;
+}
+
+
+table.Calendar {
+  background-color: #43a2ca;
+  text-align: center;
+  border-collapse: collapse;
+  width: 100%;
+}
+table.Calendar td,
+table.Calendar th {
+  border: 1px solid #FFF;
+  padding: 4px 7px;
+}
+table.Calendar tbody td {
+  font-size: 13px;
+  font-weight: bold;
+  color: #000000;
+}
+table.Calendar tr:nth-child(even) {
+  background: #c1ffe5;
+}
+table.Calendar td:nth-child {
+  background: #000;
+}
+table.Calendar tfoot td {
+  font-size: 13px;
 }
 
 
