@@ -655,6 +655,8 @@ aside.clients img {
 .text-corps {
   text-align: justify;
   padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right:10px;
 }
 
 
@@ -666,7 +668,7 @@ aside.clients img {
 }
 .column2 {
   float: left;
-  height:450px;
+  height:475px;
   padding: 10px;
   background-color: #fff5a3;
 }

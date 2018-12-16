@@ -122,7 +122,7 @@ $(function() {
   }
 
   function drawLinePlot() {
-    var months=['January', 'Febrary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'January+1']
+    var months=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'January+1']
     var values = new Array(13);
     var in_season = new Array(13);
 
@@ -203,7 +203,7 @@ $(function() {
         plot_bgcolor:'rgba(0,0,0,0)',
         autosize:true,
         margin:{
-            l:30,
+            l:40,
             r:10,
             b:30,
             t:0,
@@ -215,7 +215,19 @@ $(function() {
     });
   }
 
+var cv  = document.getElementById('cv'),
+    ctx = cv.getContext('2d');
 
+for(var i = 0; i <= 255; i++) {
+    ctx.beginPath();
+    r = i<128 ? 255 : Math.floor(255-(i/255*100*2-100)*255/100);
+    g = i>128 ? 255 : Math.floor((i/255*100*2)*255/100);
+    var color = 'rgb('+r+','+g+',0)';
+
+    ctx.fillStyle = color;
+
+    ctx.fillRect(i * 2, 0, 2, 50);
+}
   function getGreenToRed(index){
     var percent = index * 100;
     r = percent<50 ? 255 : Math.floor(255-(percent*2-100)*255/100);

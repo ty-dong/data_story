@@ -37,6 +37,11 @@
   </head>
   <div class="col-lg-12 text-center">
       <div class="row">
+        <h2 class="section-heading">Visulization Tools</h2>
+        <h4 class= subheading>Analysis per Country</h4>
+        <div class="text-corps" width='300px'> Our first tool aims to give visualization of the major food importers in France: The opacity width of the route indicates the importance of an origin. You can also change the opacity of the marker to see less important origins appear. Click on a country to see the 5 most imported product from the country.
+          <br\> (Arcs may prevent to click on a country, just hit "hide arcs")
+        </div>
         <div class="column left">
           <controls float="right">
             <h3> Controls </h3>
@@ -58,7 +63,21 @@
         </div>
       </div>
       <div class="row">
-        <h2 class= subheading>Analysis per product</h2>
+        <h4 class= subheading>Analysis per product</h4>
+        <div class= "text-corps"> Our second tool allows visualization of information for every food product: <br\>
+
+          <ul>
+            <li>Calendar displays the season of the product with bold white names. The color of the cell is mapped to the index between 0 and 1.
+          Index is calculated by normalizing the mean distance of the month with the maximum mean distance of the year, and adding it to the normalized Math.
+          Twice as much weight is given by the distance part of the index calculation.
+          If the importation mass is significantly (95%) higher than for the rest of the year, the cell is marked with a '*' ('-' otherwise).
+            </li>
+            <li>Boxplot displays the distance distribution for this product
+          </li>
+            <li>Line Chart shows the variations of importations during the year. Season for the product is indicated in green  </li>
+            <li>Bar chart displays the Top 5 importers in terms of Mass</li>
+          </ul>
+        </div>
         <div class="row-calendar">
           <table class="Calendar", id="calendar">
             <tbody>
@@ -96,6 +115,8 @@
             </tr>
             </tbody>
           </table>
+          <canvas width="512" height="10" id="cv"></canvas>
+          <div width="512" height="10"> Index colormap (Red: 0, Green: 1)</div>
         </div>
         <div class="column2 left-product">
           <div class="row-product-top">
