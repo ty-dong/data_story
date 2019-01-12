@@ -81,7 +81,6 @@ $(function() {
 	function drawTrade() {
 		d3.csv("data/countries_import.csv", function (error, routes) {
 			var maxVolume = d3.max(routes, function(d) { return +parseFloat(d.Mass); });
-			console.log(maxVolume)
 			max_volume = maxVolume;
 
 			routePath = g1.selectAll(".route")
@@ -207,8 +206,7 @@ $(function() {
 		// Scale the range of the data in the domains
 		x.domain(products.map(function(e) { return e[0][0]; }));
 
-		y.domain([0, d3.max(products, function(e) { return e[0][1]; })]);
-
+		y.domain([0, d3.max(products, function(e) {return parseInt(e[0][1]); })]);
 
 		// append the rectangles for the bar chart
 		svg.selectAll(".bar")

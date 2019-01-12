@@ -39,12 +39,12 @@ In may, tomatoes begin to be massively produced which is consistent with the sea
                     <h5>Top exporting countries</h5>
                     <iframe width="900" height="500" frameborder="0" scrolling="no" src="//plot.ly/~claranguyen/41.embed"></iframe>
                     <div class= "text-corps">
-                    Spain is by far the biggest importer to France. The bordering countries as Spain, Belgium, Germany and Italy are among the top 10 importing countries, as the cost for transportation is reduced.  Moreover, this results is also explained by European legislation promoting agricultural trade between countries. Some non-European countries like Morocco, the US and Canada are major importing countries to France.
+                    Spain is by far the biggest importer to France. The bordering countries as Spain, Belgium, Germany and Italy are among the top 10 importing countries, as the cost for transportation is reduced.  Moreover, this results is also explained by European legislation promoting agricultural trade between countries. Some non-European countries like Morocco, the US and Canada are major importing countries to France as well.
                     </div>
                     <h5>Analysis by months</h5>
                     <iframe width="900" height="500" frameborder="0" scrolling="no" src="//plot.ly/~claranguyen/19.embed"></iframe>
                     <div class="text-corps">
-                    In this plot, the countries being further than 10000km from France are displayed in red, those between 3000-10000km in orange and those between 0-3000km in green. <br/>One may wonder whether the product types imported from Spain are also produced in France. We may also wonder if France imports products from Spain even though it is their season in France. To what extent is it necessary to import those products from Spain? Is the production in France not enough? Or is it because some products like vegetables and fruits are available earlier in the year in Spain due to the mediterranean weather?
+                    In this plot, the countries being further than 10000km from France are displayed in red, those between 3000-10000km in orange and those between 0-3000km in green. Spain is always the first importer for France, at the exception of October where Bulgaria is.<br/>One may wonder whether the product types imported from Spain are also produced in France.
                     </div>
                     <h5 class = "section-subheading">Spain, a close trading partner</h5>
                     <iframe width="900" height="500" frameborder="0" scrolling="no" src="//plot.ly/~claranguyen/20.embed"></iframe>
@@ -84,15 +84,18 @@ In may, tomatoes begin to be massively produced which is consistent with the sea
                       Those informations are gathered in the calendar of visualization 2. <br/>
                        <br/>
                       By computing the mean index for the whole year, one can see how 'well' a products is imported.
+                      It is calculated by normalizing the mean distance of the month with the maximum mean distance of the year, and adding it to the normalized Math.
+                      Twice as much weight is given by the distance part of the index calculation.
+                      Therefore, it does not take into account the mass of french production, nor the season of production.
                       Tables below shows the products with the highest and lowest indexes. <br/>
                     </div>
                     <h5>Top and worst products in term of indexes</h5>
                     <iframe width="900" height="500" frameborder="0" scrolling="no" src="//plot.ly/~claranguyen/44.embed"></iframe>
                     <iframe width="900" height="500" frameborder="0" scrolling="no" src="//plot.ly/~claranguyen/46.embed"></iframe>
                     <div class="text-corps">
-                      We can see that sugar beets are one of the ‘best’ imported product: It does not come from far and is not imported highly imported. It is coherent with France production: Beet is one of the most produced food on the french territory, and importation is not needed in this case. In addition, sugar beets can be produced all year in France. The same thing can be said for rye.
-                      worst: aubergine, pomelos pamplemousse, piment, citron, autre légumes nca
-                      In the other hand, eggplant and grapefruit are highly imported, and from further countries.
+                      We can see that sugar beets are one of the ‘best’ imported product: It does not come from far and is not imported highly imported. It is coherent with France production: Beet is one of the most produced food on the french territory, and importation is not needed in this case. In addition, sugar beets can be produced all year in France. This also applies for rye.
+                      On the countrary, some products have been calculated as being "badly" imported. This applies for eggplants, limes and grapefruit for example.
+                      For these products, the median distance of importation is usually higher than for other products. Moreover, those product are not much produced in France (while being considered seasonnal). This is why they appear at the bottom of the ranking.
                     </div>
             </div>
         </div>

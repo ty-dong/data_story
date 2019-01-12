@@ -74,7 +74,7 @@ h6 {
     text-transform: uppercase;
     font-family: {{ site.data.template.font.primary }};
     font-weight: 700;
-    color: #fff;
+    color: #ffffff;
     background-color: #{{ site.data.template.color.primary }};
 }
 
@@ -338,6 +338,10 @@ section h3.section-subheading {
     font-size: 16px;
     font-style: italic;
     font-weight: 400;
+}
+
+section.tools {
+  background-color: #ffdfaf;
 }
 
 @media(min-width:768px) {
@@ -664,13 +668,12 @@ aside.clients img {
   float: left;
   height:550px;
   padding: 10px;
-  background-color: #fff5a3;
 }
 .column2 {
   float: left;
   height:475px;
   padding: 10px;
-  background-color: #fff5a3;
+
 }
 
 .left {
@@ -716,7 +719,6 @@ aside.clients img {
 }
 .row-calendar{
   width:100%;
-  background-color:#fff5a3;
   padding-left: 7.5%;
   padding-right: 7.5%;
   padding-top: 2%
