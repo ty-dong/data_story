@@ -1,6 +1,6 @@
 $(function() {
 
-  var name = "abricot"
+  var name = "apricot"
   var dist_bootstrapped = [];
   var dist_bootstrapped_int = new Array(0);
   var menu;
@@ -45,7 +45,7 @@ $(function() {
       if (error) throw error;
       data.forEach(function(e) {
         if(e.Name == name) {
-          dist_bootstrapped = e.dist_to_fr.split(",");
+          dist_bootstrapped = e.dist_to_fr_x.split(",");
           for (var s of dist_bootstrapped) {
             if(s.indexOf("[")!==-1 || s.indexOf("]")!==-1) {
               dist_bootstrapped_int.push(parseInt(s.substring(1)));
@@ -59,7 +59,8 @@ $(function() {
       var data = [
         {
           y: dist_bootstrapped_int,
-          type: 'box'
+          type: 'box',
+          name: "distance distribution"
         }
       ];
       var layout = {
@@ -67,12 +68,23 @@ $(function() {
         plot_bgcolor:'rgba(0,0,0,0)',
         autosize:true,
         margin:{
-            l:30,
+            l:50,
             r:0,
             b:20,
             t:50,
             pad:4
-        }
+        },
+        yaxis: {
+         title: {
+           text: 'Distance (km)',
+           font: {
+             family: 'Courier New, monospace',
+             size: 15,
+             color: '#000'
+           }
+         },
+       },
+
       };
 
       Plotly.newPlot('boxplot', data, layout=layout);
@@ -131,6 +143,8 @@ $(function() {
       if (error) throw error;
       data.forEach(function(e) {
         if(e.Name == name) {
+          console.log(name)
+          console.log(e.Name)
           values[e.Importation_Month-1] = parseFloat(e.Month_mass);
           in_season[e.Importation_Month-1] = e.is_right_season;
         }
@@ -147,13 +161,30 @@ $(function() {
         plot_bgcolor:'rgba(0,0,0,0)',
         autosize:true,
         margin:{
-            l:40,
+            l:45,
             r:15,
             b:50,
             t:0,
             pad:4
         },
-        shapes:[]
+        yaxis: {
+         title: {
+           text: 'Mass imported (kg)',
+           font: {
+             family: 'Courier New, monospace',
+             size: 15,
+             color: '#000'
+           }
+         },
+       },
+        shapes:[],
+        annotations: [{
+        text: 'Importations per month',
+        x: months[6],
+        y: d3.max(values),
+        showarrow: false,
+        font: {size: 14}
+    }]
       };
       for( var i = 0; i < 12;  i++ ){
         if(in_season[i]=='True') {
@@ -203,12 +234,31 @@ $(function() {
         plot_bgcolor:'rgba(0,0,0,0)',
         autosize:true,
         margin:{
-            l:40,
+            l:45,
             r:10,
             b:30,
             t:0,
             pad:4
-        }
+        },
+        yaxis: {
+         title: {
+           text: 'Mass imported (kg)',
+           font: {
+             family: 'Courier New, monospace',
+             size: 15,
+             color: '#000'
+           }
+         },
+       },
+        annotations: [{
+        text: 'Top importing countries',
+        //xanchor: 'center',
+        //yanchor: 'top',
+        x: names[2],
+        y: d3.max(mass),
+        showarrow: false,
+        font: {size: 14}
+    }]
       };
 
       Plotly.newPlot('barchart-prod', data, layout=layout);
