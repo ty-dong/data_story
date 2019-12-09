@@ -56,9 +56,68 @@ h6 {
     font-family: {{ site.data.template.font.primary }};
     font-weight: 700;
 }
+div{
+  font-size: 1.05em;
+    }
 
 .img-centered {
     margin: 0 auto;
+}
+
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 19px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+
+.btn-warning {
+    color: #{{ site.data.template.color.primary}};
+}
+
+.btn-warning:hover {
+    background-color: #{{ site.data.template.color.primary}};
+    color: white;
+}
+
+.btn-warning:focus{
+    color: #000;
+    background-color: #fff;
+}
+
+.btn-success {
+    color: #{{ site.data.template.color.primary}};
+}
+
+.btn-success:hover {
+    background: #{{ site.data.template.color.primary}};
+    color: white;
+}
+
+.btn-success:focus{
+    color: #000;
+    background-color: #fff;
+}
+
+.btn-info {
+    color: #{{ site.data.template.color.primary}};
+}
+
+.btn-info:hover {
+    background: #{{ site.data.template.color.primary}};
+    color: white;
+}
+
+.btn-info:focus{
+    color: #000;
+    background-color: #fff;
+}
+
+.default:hover {
+    background: #e7e7e7;
 }
 
 .bg-light-gray {
@@ -268,7 +327,7 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url('{{ site.baseurl }}/img/nature-grass-horizon-cloud-plant-sky-7605-pxhere.com.jpg');
+    background-image: url('{{ site.baseurl }}/img/recipe.jpg');
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
@@ -296,6 +355,14 @@ header .intro-text .intro-heading {
     font-size: 50px;
     font-weight: 700;
     line-height: 50px;
+}
+
+header .intro-text .intro-authors {
+    margin-bottom: 25px;
+    font-family: {{ site.data.template.font.secondary }};
+    font-size: 24px;
+    font-style: italic;
+    line-height: 22px;
 }
 
 @media(min-width:768px) {
@@ -328,14 +395,14 @@ section {
 section h2.section-heading {
     margin-top: 0;
     margin-bottom: 15px;
-    font-size: 40px;
+    font-size: 44px;
 }
 
 section h3.section-subheading {
     margin-bottom: 75px;
     text-transform: none;
     font-family: {{ site.data.template.font.secondary }};
-    font-size: 16px;
+    font-size: 30px;
     font-style: italic;
     font-weight: 400;
 }

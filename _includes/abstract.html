@@ -3,29 +3,80 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Abstract</h2>
-                      <div class= "text-corps"> "Think Global buy local" is a rising motto used to address sustainable food trade. Indeed, a lot of food is continuously imported throughout the year. Although seasonal products are highly produced during their respective month, they still constitute a non-negligeable share of the imported products.
-<br/><br/>Buying local food keeps land in production and promotes local economic development by creating jobs and increasing trade. Local production also reduces food safety risks and raises transparency about the food that we buy.  In addition, avoiding long transportation by plane or by boat reduces greenhouse gas emission.
-This datastory is about analyzing what are the dynamics of French seasonal food importations and hopefully will help change ways of consumptions towards a more sustainable food trade.
-                      </div>
-                    <h4 class = "section-subheading">Research Questions</h4>
-                    <div class= "text-corps">
-                      <ul>
-                        <li>From which countries does French seasonal food products mainly come from ?</li>
-                        <li>What are the main categories of seasonal products being imported?
-                      </li>
-                        <li>Are we importing products during their season of production?  </li>
-                        <li>What is the distance distribution for the main imported food categories during the year?</li>
-                        <li>When is the right time to buy specific products? </li>
-                      </ul>
+                  <h2 class="section-heading">Abstract</h2>
+                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+                  <div class="container">
+                    <button type="button" class="btn btn-info" >Intro</button>
+                    <button type="button" class="btn btn-success">Dataset</button>
+                    <button type="button" class="btn btn-warning">Questions</button> 
+                      
+                    <div class="collapse multi-collapse in", id="intro", align="left">
+                      Cooking is an important skill for everyone, no matter where they live. After evolving for centuries, what people eat everyday has grown into systems. Every country has their own style of eating and the styles diverge from region to region. <br><br>
+
+                      Through the recipes, we can know what is frequently eaten by the people of one country and how they usually cook. We can even go further, find the relationships between what people eat and how their health conditions are, and dig out all the secrets behind the recipes.
                     </div>
-                    <h4 class = "section-subheading">Sources</h4>
-                    <div class= "text-corps">
-                      Our analysis is mostly based on informations regarding food imports registered at France customs, resumed in a dataset from the  <a href="https://www.data.gouv.fr/en/datasets/statistiques-nationales-du-commerce-exterieur/#">French government website</a>. It gathers information about how much products were imported each month in 2016, for each food category and from where these products come from.
-  <br/>Food importations are compared to annual food productions in 2016 from the <a href="http://www.fao.org/faostat/fr/#data/QC">FAO database</a>. It lists the production mass for each food category.
-  <br/>We also needed information regarding the months in which a product is seasonal in France: These informations were obtained from <a href="https://www.greenpeace.fr/guetteur/calendrier">Greenpeace Calendar</a>.
+                    <div class="collapse multi-collapse", id="dataset", align="left">
+                      The first two dataset we used are collected from  <a href="https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions">Kaggle</a>. The recipe dataset contains 230185 different recipes and includes information about the cooking steps, ingredients, time needed, tags, etc. Through the tags of the recipes, we could figure out where the dish originates from. By matching the coutnries with recipes, we get recipes in total.
+                      <br><br>
+                       In RAW_interactions.csv, the reviews and the corresponding recipe id enable NLP analysis of people's feedback towards recipes.
                     </div>
-                </div>
+                    <div class="collapse multi-collapse", id="questions", align="left">
+                     <i class="fa fa-hand-o-right"></i> How do eating habits vary in different countries?<br>
+                  - the most frequently used seasoning, cooking methods, ingredients <br><br>
+
+                  <i class="fa fa-hand-o-right"></i> How are the different eating habits related to health?<br>
+                  - Analyze correlation between some health indices like the life span, overweight rate, high blood pressure, etc with common seasonings and cooking methods.<br>
+                  - find relationshp between some common food-related disease and eating habits: cancer, obesity. We will get the death rate of some food-related diseases in different countries and then compare them with their different eating habits, for example, cooking methods and main ingredients or seasoning in foods.<br><br>
+
+                  <i class="fa fa-hand-o-right"></i> Machine learning system exploration based on available data<br>
+                  1. The recommendation systems for food<br>
+                      - according to historical beloved food and ratings<br>
+                      - according to the ingredients we have<br>
+                  2. The regression model for nutrient prediction<br>
+                  3. The classification model for flavour prediction<br>
+                    </div>
+                  </div>
+
+                  <script>
+                  $(document).ready(function(){
+
+
+
+                    $(".btn-info").click(function(){
+                      $("#intro").collapse({toggle: false});
+                      $("#dataset").collapse({toggle: false});
+                      $("#questions").collapse({toggle: false});
+                      $("#intro").collapse('show');
+                      $("#dataset").collapse('hide');
+                      $("#questions").collapse('hide');
+                    });
+                    $(".btn-success").click(function(){
+                       $("#intro").collapse({toggle: false});
+                      $("#dataset").collapse({toggle: false});
+                      $("#questions").collapse({toggle: false});
+                      $("#intro").collapse('hide');
+                      $("#dataset").collapse('show');
+                      $("#questions").collapse('hide');
+                    });
+                    $(".btn-warning").click(function(){
+                       $("#intro").collapse({toggle: false});
+                      $("#dataset").collapse({toggle: false});
+                      $("#questions").collapse({toggle: false});
+                      $("#intro").collapse('hide');
+                      $("#dataset").collapse('hide');
+                      $("#questions").collapse('show');
+                    });
+                  });
+                  </script>
+
+             </div>
             </div>
         </div>
-    </section>
+    </section> 
+
+
+  
+
+
