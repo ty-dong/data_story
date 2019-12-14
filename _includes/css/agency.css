@@ -323,6 +323,13 @@ fieldset[disabled] .btn-xl.active {
     }
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 header {
     text-align: center;
     color: #fff;
@@ -387,10 +394,10 @@ header .intro-text .intro-authors {
         line-height: 75px;
     }
 }
-
+/*
 section {
     padding: 100px 0;
-}
+}*/
 
 section h2.section-heading {
     margin-top: 0;
@@ -413,7 +420,7 @@ section.tools {
 
 @media(min-width:768px) {
     section {
-        padding: 150px 0;
+        padding: 50px 0;
     }
 }
 

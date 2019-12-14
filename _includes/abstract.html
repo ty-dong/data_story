@@ -18,24 +18,28 @@
                       Through the recipes, we can know what is frequently eaten by the people of one country and how they usually cook. We can even go further, find the relationships between what people eat and how their health conditions are, and dig out all the secrets behind the recipes.
                     </div>
                     <div class="collapse multi-collapse", id="dataset", align="left">
-                      The first two dataset we used are collected from  <a href="https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions">Kaggle</a>. The recipe dataset contains 230185 different recipes and includes information about the cooking steps, ingredients, time needed, tags, etc. Through the tags of the recipes, we could figure out where the dish originates from. By matching the coutnries with recipes, we get recipes in total.
+                      The two dataset about recipes we used are collected from  <a href="https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions" style="background-color: white; color: #{{ site.data.template.color.primary }};">Kaggle</a>. One of them contains 230185 different recipes scraped from <a href="https://www.food.com/" style="background-color: white; color: #{{ site.data.template.color.primary }};">Food.com</a> and includes information about the cooking steps, ingredients, time needed, tags, etc. Through the tags of the recipes, we could figure out where the dish originates from. By matching the coutnries with recipes, we get 78990 recipes from 66 different countries and regions.
+                      <br>
+                      The other dataset is about ratings and comments on the recipes by the users of Food.com. The reviews and the corresponding recipe id enable NLP analysis of people's feedback towards recipes. 
                       <br><br>
-                       In RAW_interactions.csv, the reviews and the corresponding recipe id enable NLP analysis of people's feedback towards recipes.
+                      To learn the relationship between recipes and health, we use datasets about <a href="https://www.who.int/data/gho/data/themes/noncommunicable-diseases/GHO/noncommunicable-diseases" style="background-color: white; color: #{{ site.data.template.color.primary }};">noncommunicable diseases</a> and <a href="https://www.who.int/data/gho/data/themes/theme-details/GHO/body-mass-index-(bmi)" style="background-color: white; color: #{{ site.data.template.color.primary }};">bmi</a> from WHO in 2016.
+                       The GDP dataset from <a href="https://data.worldbank.org/indicator/NY.GNP.PCAP.CD" style="background-color: white; color: #{{ site.data.template.color.primary }};">The World Bank</a> is also used to balance the influence of economy on citizens' health conditions.
+
+
                     </div>
                     <div class="collapse multi-collapse", id="questions", align="left">
                      <i class="fa fa-hand-o-right"></i> How do eating habits vary in different countries?<br>
-                  - the most frequently used seasoning, cooking methods, ingredients <br><br>
+                  - the most frequently used seasoning, cooking methods, ingredients <br>
+                  - the flavor preference (sour, sweet, spicy) among countries<br>
+                  - potential similaritie of recipes from the same country<br>
+                  <br>
+
 
                   <i class="fa fa-hand-o-right"></i> How are the different eating habits related to health?<br>
-                  - Analyze correlation between some health indices like the life span, overweight rate, high blood pressure, etc with common seasonings and cooking methods.<br>
-                  - find relationshp between some common food-related disease and eating habits: cancer, obesity. We will get the death rate of some food-related diseases in different countries and then compare them with their different eating habits, for example, cooking methods and main ingredients or seasoning in foods.<br><br>
+                  - Analyze correlation between health indices (e.g. life span, overweight rate) with common seasonings and cooking methods.<br>
+                  - find relationshp between common food-related disease (e.g. cancer, obesity) and eating habits. <br><br>
 
-                  <i class="fa fa-hand-o-right"></i> Machine learning system exploration based on available data<br>
-                  1. The recommendation systems for food<br>
-                      - according to historical beloved food and ratings<br>
-                      - according to the ingredients we have<br>
-                  2. The regression model for nutrient prediction<br>
-                  3. The classification model for flavour prediction<br>
+                  
                     </div>
                   </div>
 

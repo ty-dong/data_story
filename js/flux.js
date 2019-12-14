@@ -50,7 +50,7 @@ $(function() {
 	    .attr("d", path)
 			.on("click", country_clicked);
 
-		drawTrade();
+		// drawTrade();
 		});
 
 		document.getElementById("color").addEventListener("change", function() {
@@ -209,28 +209,28 @@ $(function() {
 		y.domain([0, d3.max(products, function(e) {return parseInt(e[0][1]); })]);
 
 		// append the rectangles for the bar chart
-		svg.selectAll(".bar")
-				.data(products)
-			.enter().append("rect")
-				.attr("class", "bar")
-				.attr("x", function(e) { return x(e[0][0]); })
-				.attr("width", x.bandwidth())
-				.attr("y", function(e) { return y(e[0][1]); })
-				.attr("height", function(e) { return height - y(e[0][1]); })
+		// svg.selectAll(".bar")
+		// 		.data(products)
+		// 	.enter().append("rect")
+		// 		.attr("class", "bar")
+		// 		.attr("x", function(e) { return x(e[0][0]); })
+		// 		.attr("width", x.bandwidth())
+		// 		.attr("y", function(e) { return y(e[0][1]); })
+		// 		.attr("height", function(e) { return height - y(e[0][1]); })
 
-		// add the x Axis
-		svg.append("g")
-				.attr("transform", "translate(0," + height + ")")
-				.call(d3.axisBottom(x))
-				.selectAll("text")
-            .style("text-anchor", "end")
-            .attr("dx", "-.8em")
-            .attr("dy", ".15em")
-            .attr("transform", "rotate(-65)" );
+		// // add the x Axis
+		// svg.append("g")
+		// 		.attr("transform", "translate(0," + height + ")")
+		// 		.call(d3.axisBottom(x))
+		// 		.selectAll("text")
+  //           .style("text-anchor", "end")
+  //           .attr("dx", "-.8em")
+  //           .attr("dy", ".15em")
+  //           .attr("transform", "rotate(-65)" );
 
-		// add the y Axis
-		svg.append("g")
-				.call(d3.axisLeft(y).ticks())
+		// // add the y Axis
+		// svg.append("g")
+		// 		.call(d3.axisLeft(y).ticks())
 
 			});
 	}
