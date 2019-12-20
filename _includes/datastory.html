@@ -8,7 +8,7 @@
 
                 <h2 class="section-heading">What do they prefer?</h2>
                   <div class= "text-corps">
-Not only your accent can tell us where you are from, what you eat can do the same! There may be stereotypes that all French love cheese or all Chinese have rice for lunch. But in general human beings living in the same area tend to eat alike. These habits are inherited from our ancestors and latently label us who we are. <br><br>
+Not only your accent can tell us where you are from, what you eat can do the same! There may be stereotypes that all French love cheese or all Chinese have rice for lunch. Nevertheless in general human beings living in the same area tend to eat alike. These habits are inherited from our ancestors and latently label us who we are. <br><br>
 We compute the frequency of the ingredients and cooking methods for all the countries. Seasonings are seperated from the ingredients, since they are in charge of deciding whether the dish is sweet or salty and characterize more of people's eating habit. A guy in Europe and a guy in Asia may both choose to have chicken for lunch, yet how they adjust the flavor can be totally different. 
                   </div>
 
@@ -23,7 +23,7 @@ We compute the frequency of the ingredients and cooking methods for all the coun
   <h2>Top 30 Seasonings</h2>
 </div>
 <div class= "text-corps">
- Recall that we identify 51 coutries in total. Therefore, as universal flavorings, salt, salt, pepper, onion, oil, sugar and butter almost appear in recipes of all countries studied. In contrast, at the bottom of the sorted frequency list, we may recognize some regional specialties. We choose several representative countries: <b>Italy, France, Vietnam, Malaysia, Korea, China</b> and <b>Japan</b>. 
+ Recall that we identify 51 coutries in total. Therefore, as universal flavorings, salt, pepper, onion, oil, sugar and butter almost appear in recipes of all countries studied. In contrast, at the bottom of the sorted frequency list, we may recognize some regional specialties. We choose several representative countries: <b>Italy, France, Vietnam, Malaysia, Korea, China</b> and <b>Japan</b>. 
 </div>
  <div class="post-container">                
     <div class="post-thumb-r">
@@ -77,7 +77,7 @@ We compute the frequency of the ingredients and cooking methods for all the coun
     <div class="post-content-r">
         <div class= "text-corps"> 
            <br><br>
-        <i class="fa fa-arrow-circle-right"></i> Spaghetti is traditional italian cuisine, so it is not surprising that spaghetti sauce is frequently used in Italy. One would never expect that to happen in the Asia countries. <br><br>
+        <i class="fa fa-arrow-circle-right"></i> Spaghetti is traditional italian cuisine, so it is not surprising that spaghetti sauce is frequently used in Italy. One would never expect that to happen in the asian countries. <br><br>
         <i class="fa fa-arrow-circle-right"></i> Used as a pungent condiment for sushi, wasabi is indispensible in most of the japanese recipes. <br><br>
         <i class="fa fa-arrow-circle-right"></i> Tarragon is one of the four "fines herbes" of French cooking, and is particularly suitable for chicken, fish, and egg dishes. <br><br>
         <i class="fa fa-arrow-circle-right"></i> Soy sauce and rice wine vinegar are very popular in East Asia. <br><br>
@@ -242,8 +242,8 @@ Beside seasonings, other ingredients are also interesting. We choose eight count
     <div class="post-content-l">
         <div class= "text-corps"> 
            <br><br> <br><br>
-        Recipes themselves may differ a lot, but it is a natural and reasonable idea that recipes from the same country would be similar. This may be due to the fact that the ingredients the recipes used should be easily gained from local areas and be preferred by natives. <br><br>
-        To give a better and clearer idea that recipes from the same country look alike, we use PCA and t-SNE to help us visualize the relationship among recipes. The steps in the recipes that teach people how to cook are processed using NLP techiniques and are then converted to vectors using bag of words in a space with thousands of dimension. Finally, using the dimension reduction methods mentioned above, the vectors representing recipes are shown in a three-dimensional space.<br><br>
+        Recipes themselves may differ a lot, but it is a natural and reasonable idea that recipes from the same country would be similar. This may be due to the fact that the ingredients the recipes use should be easily gained from local areas and be preferred by natives. <br><br>
+        To give a better and clearer idea what the recipes from the same country look like, we use PCA and t-SNE to help us visualize the relationship among recipes. The steps in the recipes that teach people how to cook are processed using NLP techiniques and are then converted to vectors using bag of words in a space with thousands of dimensions. Finally, using the dimension reduction methods mentioned above, the vectors representing recipes are shown in a three-dimensional space.<br><br>
         
          </div>
        </div>
@@ -262,47 +262,81 @@ Beside seasonings, other ingredients are also interesting. We choose eight count
                     <button type="button" class="btn btn-success"id="12">Total fat(g)</button>
                     <button type="button" class="btn btn-warning" id = "13">Sugar(g)</button> 
                     <button type="button" class="btn btn-info" id="14">Sodium(mg)</button>
-                    <!-- <button type="button" class="btn btn-success" id = "15">Protein(g)</button> -->
-                    <!-- <button type="button" class="btn btn-warning"id = "16">Sat_fat(g)</button>  -->
-                    <!-- <button type="button" class="btn btn-warning"id = "17">Carbs(g)</button>  -->
+                    <button type="button" class="btn btn-success" id = "15">Protein(g)</button>
+                    <button type="button" class="btn btn-warning"id = "16">Saturated fat(g)</button> 
+                    <button type="button" class="btn btn-warning"id = "17">Carbohydrate(g)</button> 
                       
                     <div class="collapse multi-collapse in", id="1", align="left">
                        <div class="post-container">  
-                       <iframe width="1000px" height="800px"  frameborder="0" scrolling="no" src="//plot.ly/~JiahuaWU/2.embed"></iframe>              
+                       <img src="img/nutrition/calories(kJ).jpeg" style="height:500px;width:70% align="center">             
                     </div>
                     </div>
                     <div class="collapse multi-collapse", id="2", align="left">
-                     <iframe width="1000px" height="800px" frameborder="0" scrolling="no" src="//plot.ly/~JiahuaWU/1.embed"></iframe>
+                      <img src="img/nutrition/total_fat(g).jpeg" style="height:500px;width:70% align="center">    
                     </div>
                     <div class="collapse multi-collapse", id="3", align="left">
-                      <iframe width="1000px" height="800px" frameborder="0" scrolling="no" src="//plot.ly/~JiahuaWU/3.embed"></iframe>
+                       <img src="img/nutrition/sugar(g).jpeg" style="height:500px;width:70% align="center">    
                   </div>
-                
-                
 
                   <div class="collapse multi-collapse", id="4", align="left">
-                  <iframe width="1000px" height="800px" frameborder="0" scrolling="no" src="//plot.ly/~JiahuaWU/4.embed"></iframe>
+                   <img src="img/nutrition/sodium(mg).jpeg" style="height:500px;width:70% align="center">    
                     </div>
-                 
 
+                    <div class="collapse multi-collapse", id="5", align="left">
+                      <img src="img/nutrition/protein(g).jpeg" style="height:500px;width:70% align="center">    
+                    </div>
+                        <div class="collapse multi-collapse", id="6", align="left">
+                             <img src="img/nutrition/sat_fat(g).jpeg" style="height:500px;width:70% align="center">              
+                        </div>
+                        <div class="collapse multi-collapse", id="7", align="left">  
+                          <img src="img/nutrition/carbs(g).jpeg" style="height:500px;width:70% align="center">    
+                        </div>d
+               <div class= "text-corps">                           
+              Clearly, recipes originated from western countries (European countries, US, Canada and Australia) tend to contain relatively high calories, high fat, high sugar, high carbs and low sodium. On the contrary, recipes of east asian countries tend to contain high sodium and high proteins. These characterizaions have important influence on statistics related to health that we include later.
+                </div>
+          
+                <h2 class="section-heading">What is their relationship?</h2>
+                <h2>Nutrition</h2>
+                <div class= "text-corps">  
+                    There is no need to say that food is related to health. After having an overview at the averaged nutrition intake, we would like to dig out more about what people eat and how healthy people are. <br><br>
+                    To clearly define healthy, we use datasets from WHO about disease incidence and overweight rate. The correlation between nutrition and health index is computed and shown in flow chart (due to the data size, only several examples are shown). Wide edge indicates high correlation. If we focus on high cholesterol, we would see that sugar, fat and carbohydrate seem to have correlation with it.
+                  </div> 
+                  <iframe width="100%" height="600px" frameborder="0" scrolling="no" src="//plot.ly/~huajian1069/14.embed"></iframe>
+                  <h2>Seasoning</h2>
 
-<!-- <div class="collapse multi-collapse", id="5", align="left">
- <iframe width="1000px" height="800px" frameborder="0" scrolling="no" src="//plot.ly/~JiahuaWU/6.embed"></iframe>
-</div> -->
-                 
-
-
-
-<<!-- div class="collapse multi-collapse", id="6", align="left">
-      <iframe width="1000px" height="800px" frameborder="0" scrolling="no" src="//plot.ly/~JiahuaWU/7.embed"></iframe>               
-</div>
-             -->     
-
-
-
-<!-- <div class="collapse multi-collapse", id="7", align="left"> <iframe width="1000px" height="800px" frameborder="0" scrolling="no" src="//plot.ly/~JiahuaWU/5.embed"></iframe>
-</div> -->
+                <div class= "text-corps"> 
                   
+                  
+                  It is a common knowledge that too much sugar or salt is not a good choice when you want to stay healthy. Lots of stars and models have boiled broccoli with no seasoning to keep in shape. So what is the relationship between seasonings and healthy?
+                  <br><br>
+                  The flow chart shows several countries' intake of the seasonings and the countries' health indices. These characteristics are represented as nodes. The wider the edge is, the more seasoning the country consumes in average or the higher the health index is. It can be seen that the seasoning intake and the health indices differ a lot from country to country. There is more to explore about.
+                  </div>
+                  <iframe width="100%" height="600px" frameborder="0" scrolling="no" src="//plot.ly/~huajian1069/12.embed"></iframe>
+                  
+
+                  <div class="post-container">                
+    <div class="post-thumb-l"><img src="img/relationship.jpeg" style="height:300px;width:300px"></iframe></div>
+    <div class="post-content-l">
+        <div class= "text-corps"> 
+          <br><br>
+        We hope to find the relationships between seasoning and the health indices, however even if we get a high correlation between a specific seasoning and disease, we can not come to the conclusion that having the seasoning more in daily life will lead to the disease. There are many other factors that will influence people's health condition.
+        <br><br>
+        Here we just go one step furthur: taking income per capita into consideration. Given the same income level, how does the seasoning consumption amount influence health indices?
+         </div>
+       </div>
+</div>
+<div class= "text-corps"> 
+  We first make the hypothesis that only seasoning intake and income level influence the health indices. As for other attributes of the countries, they are either similar or irrelavent to the health indices, thus these attributes will not exert an influence on the health indices. So when controling the seasoning intake and income level, the health indices values should be the same. A sensitivity analysis is carried out and when gamma equals 2, only hypothesis for six health indices are verified (shown below).<br><br>
+  Take the high income countries (defined by The World Bank) as example. For these countries, the correlation between seasoning intake and the six health indices are computed. The value of the correlation is represented by the width of the edges. Salt seems to have high positive correlation with high cholesterol and high blood pressure. This coincides with our common knowledge. Also, vinegar might be good for health due to their high correlation. 
+
+</div>
+<iframe width="100%" height="600px" frameborder="0" scrolling="no" src="//plot.ly/~huajian1069/17.embed"></iframe>
+
+
+
+
+
+
 
 
 
